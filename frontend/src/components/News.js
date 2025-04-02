@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import NewsItem from "./NewsItem";
 
+const BASE_URL="https://spicey-a-news-website-3.onrender.com";
+
 const News = () => {
   const [news, setNews] = useState([]);
   const [nextPage, setNextPage] = useState(null);
@@ -68,8 +70,8 @@ const News = () => {
 
     try {
       const url = pageToken
-        ? `http://localhost:5000/news?nextPage=${pageToken}`
-        : `http://localhost:5000/news`;
+        ? `${BASE_URL}/news?nextPage=${pageToken}`
+        : `${BASE_URL}/news`;
 
       console.log("Fetching from:", url);
       const response = await fetch(url);
